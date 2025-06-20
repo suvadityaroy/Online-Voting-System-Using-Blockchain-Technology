@@ -1,0 +1,42 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+
+# Coverage / test artifacts
+.coverage
+.coverage.*
+.cache/
+.pytest_cache/
+htmlcov/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Flask instance folder
+instance/
+
+# Local data / temp
+*.sqlite3
+*.db
+.temp/
