@@ -1,80 +1,105 @@
-# BlockVote — Online Voting on Blockchain
-<img src="https://capsule-render.vercel.app/api?type=waving&color=2e7d32&height=120&section=header&text=BlockVote&fontColor=ffffff&fontSize=40&animation=twinkling" alt="BlockVote" />
+# BlockVote - Online Voting Using Blockchain
 
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-Web-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Blockchain](https://img.shields.io/badge/Topic-Blockchain-2e7d32?logo=polymerproject&logoColor=white)](#)
-[![UI](https://img.shields.io/badge/UI-HTML%2FCSS-E34F26?logo=html5&logoColor=white)](#)
+## Project Title
+BlockVote - Online Voting Using Blockchain
 
-> 🔐 Secure, tamper-evident voting built with a minimal blockchain, Flask, and a simple web UI.
-
-## What It Is
-- 🧪 A lightweight demo of blockchain-backed electronic voting (educational proof of concept).
-- ⛓️ Each vote is recorded as a transaction, grouped into mined blocks with Proof of Work.
-- 🌐 Flask-powered web app with separate flows for admins (miners) and voters.
+## Description / Overview
+BlockVote is a Python Flask application that demonstrates a blockchain-based electronic voting system.
+Each vote is stored as a transaction and added to a block through a simple Proof-of-Work process.
+The project focuses on transparency, tamper evidence, and educational understanding of blockchain voting architecture.
 
 ## Features
-- 🗳️ Double-vote prevention using in-memory voter ledgers during a session.
-- 👨‍💼 Admin/miner flow to mine recent votes into the chain and review past records.
-- 🧑‍⚖️ Voter flow to cast a ballot via styled HTML forms; optional chain inspection endpoint.
-- ⚙️ Simple Proof-of-Work consensus with chain validation hooks for multi-node expansion.
-- 📡 JSON APIs for mining, submitting votes, and retrieving the full chain.
+- Separate voter and admin/miner workflows
+- Vote submission through web forms
+- Pending vote transaction pool
+- Proof-of-Work mining to create blocks
+- Blockchain ledger retrieval endpoint
+- Basic session-level duplicate voting checks
+- Lightweight architecture for easy local testing
 
 ## Tech Stack
-- 🐍 Languages: Python 3, HTML5, CSS3 (inline + standalone stylesheet).
-- 🔧 Frameworks/Libraries: Flask, requests, matplotlib (planned/optional), uuid, hashlib, time.
-- 🖥️ Runtime: Any recent Python 3 environment (developed on Windows; works cross-platform).
+- Python 3
+- Flask
+- HTML5 and CSS3 templates
+- requests
+- hashlib, uuid, and time (Python standard libraries)
 
-## Project Structure
-- 📁 `main.py` — Flask app, routes for voters/miners, transaction handling, mining trigger, chain viewer.
-- 📦 `backend.py` — `Blockchain` class (genesis block, PoW, transaction pool, hashing, consensus hook).
-- 🎨 `templates/` — HTML pages for landing, voter entry, ballot forms, repeat-vote notice; includes one legacy Wix-exported page and a basic CSS file.
-- 🧰 `venv/` — Local virtual environment (not required if you create your own).
+## Architecture / System Design
 
-## Getting Started
-1) Clone
-```
-git clone https://github.com/<your-org>/Online-Voting-Using-Blockchain.git
-cd Online-Voting-Using-Blockchain-main/Online-Voting-Using-Blockchain-main
+### Flowchart Diagram
+```mermaid
+flowchart TD
+	A[User Opens Application] --> B{Select Role}
+	B -->|Voter| C[Enter Voter ID]
+	B -->|Admin or Miner| D[Enter Miner ID]
+
+	C --> E[Cast Vote]
+	E --> F[Create Vote Transaction]
+	F --> G[Add to Pending Transactions]
+
+	D --> H[Mine Pending Transactions]
+	G --> H
+	H --> I[Run Proof of Work]
+	I --> J[Create New Block]
+	J --> K[Append Block to Blockchain]
+
+	K --> L[View Updated Chain]
+	L --> M[Verify Transparency and Integrity]
 ```
 
-2) Create & activate a virtual environment
+### High-Level Design
+- Frontend Layer: HTML templates in `templates/` for voter and admin interactions
+- Application Layer: Flask routes in `main.py` for voting, mining, and chain display
+- Blockchain Layer: `backend.py` for block structure, hashing, PoW, and chain operations
+- Data Scope: In-memory demo data that resets when the server restarts
+
+## Installation & Setup
+1. Clone the repository
+```bash
+git clone https://github.com/suvadityaroy/Online-Voting-System-Using-Blockchain-Technology.git
+cd Online-Voting-Using-Blockchain-main
 ```
+
+2. Create a virtual environment
+```bash
 python -m venv .venv
-./.venv/Scripts/activate   # Windows
-# source .venv/bin/activate   # macOS/Linux
 ```
 
-3) Install dependencies
+3. Activate the environment
+Windows PowerShell:
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
+Windows CMD:
+```cmd
+.venv\Scripts\activate.bat
+```
+macOS/Linux:
+```bash
+source .venv/bin/activate
+```
+
+4. Install dependencies
+```bash
 pip install flask requests matplotlib pymysql
 ```
 
-4) Run the app
-```
+5. Run the application
+```bash
 python main.py
-# App defaults: host=localhost, port=5500, debug=True
 ```
 
-5) Open in your browser
-- Admin/miner & voter landing: http://localhost:5500/
-- Voter entry page: http://localhost:5500/voter
-- Full chain (JSON): http://localhost:5500/chain/
+6. Open in browser
+- Main page: http://localhost:5500/
+- Voter page: http://localhost:5500/voter
+- Chain endpoint: http://localhost:5500/chain/
 
-## Usage Notes
-- Sample voter IDs and miner IDs are hard-coded for demo purposes; adjust for real deployments.
-- Votes are kept in memory; restarting the server resets the chain and voter ledgers.
-- Proof-of-Work difficulty is low (four leading zeros) to keep demos fast.
-- Security, authentication, persistence, and audit features are intentionally minimal for clarity.
+## Author / Contact
+Suvaditya Roy
+- GitHub: https://github.com/suvadityaroy
 
-## Publication
-This project is published in the **Springer Nature** proceedings:
-
-📖 **"Ensuring Security and Transparency in E-Voting Systems Through Blockchain Technology"**
-- **Authors:** Siddhartha Roy, Abhijay Dutta, Surjyakamal Saha, Tanmoy Saha & Suvaditya Roy
-- **Conference:** International Conference On Data Mining And Information Security (ICDMIS 2024)
-- **Published:** October 01, 2025
-- **Series:** Lecture Notes in Networks and Systems (LNNS, volume 1387)
-- **DOI/Link:** https://link.springer.com/chapter/10.1007/978-981-96-6060-5_33
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=2e7d32&height=100&section=footer" alt="footer" />
+Publication:
+Ensuring Security and Transparency in E-Voting Systems Through Blockchain Technology
+- Conference: ICDMIS 2024
+- Publisher: Springer Nature (LNNS)
+- DOI: https://link.springer.com/chapter/10.1007/978-981-96-6060-5_33
