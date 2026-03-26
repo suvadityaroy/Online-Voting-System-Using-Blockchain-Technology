@@ -6,38 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make your vote</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h3>Please make a vote</h3>
-    <form action = "#" method = "POST">
-        <label>
-            <input type="radio" id="vote_1" name="vote" value="BJP">
-            Bharatiya Janata Party (BJP)<br>
-        </label>
-        <label>
-            <input type="radio" id="vote_2" name="vote" value="INC">
-            <label for="vote_2">Indian National Congress (INC)<br>
-        </label>
-        <label>
-            <input type="radio" id="vote_3" name="vote" value="CSI">
-            Communist Party of India (CSI)<br>
-        </label>
-        <label>
-            <input type="radio" id="vote_4" name="vote" value="BSP">
-            Bahujan Samaj Party (BSP)<br>
-        </label>
-        <label>
-            <input type="radio" id="vote_5" name="vote" value="NPP">
-            National People's Party (NPP)<br>
-        </label>
-        <label>
-            <input type="radio" id="vote_6" name="vote" value="NOTA">
-            None of the Above (NOTA)<br>
-        </label>
-        <br>
-        <button type="submit" value="vote" name="submit">
-            Submit Vote
-        </button>
-    </form>
+    <div class="container">
+        <h3>Please Cast Your Vote</h3>
+        <form action="#" method="POST">
+            <div class="radio-list">
+                <label for="vote_1"><input type="radio" id="vote_1" name="vote" value="BJP"> Bharatiya Janata Party (BJP)</label>
+                <label for="vote_2"><input type="radio" id="vote_2" name="vote" value="INC"> Indian National Congress (INC)</label>
+                <label for="vote_3"><input type="radio" id="vote_3" name="vote" value="CSI"> Communist Party of India (CSI)</label>
+                <label for="vote_4"><input type="radio" id="vote_4" name="vote" value="BSP"> Bahujan Samaj Party (BSP)</label>
+                <label for="vote_5"><input type="radio" id="vote_5" name="vote" value="NPP"> National People's Party (NPP)</label>
+                <label for="vote_6"><input type="radio" id="vote_6" name="vote" value="NOTA"> None of the Above (NOTA)</label>
+            </div>
+            <button type="submit" value="vote" name="submit">Submit Vote</button>
+        </form>
+    </div>
 </body>
 </html>
